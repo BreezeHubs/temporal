@@ -9,12 +9,12 @@ Temporal为golang编写的 分布式任务调度框架 ，定位是`microservice
 
 ![image-20221231153409185](./resource/20221231153409185.png)
 
-Activity：使用Temporal提供的各种语言的SDK（go、java、python、php等等）编写的代码逻辑
-Workflow：Activity集合，多个Activity构成一个Workflow，是调度的最小单位
-Workers：不同语言写的Workflow可以注册到对应语言的Workers中，Workers是代码的真正执行者
-Temporal Server：管理注册到自己的Workers，向Workers下发任务，监听任务状态等
-cli、web、SDK：任务的发起者、监控任务进度等
-cli、web：负责任务的监控、查询等
+Activity：使用Temporal提供的各种语言的SDK（go、java、python、php等等）编写的代码逻辑  
+Workflow：Activity集合，多个Activity构成一个Workflow，是调度的最小单位  
+Workers：不同语言写的Workflow可以注册到对应语言的Workers中，Workers是代码的真正执行者  
+Temporal Server：管理注册到自己的Workers，向Workers下发任务，监听任务状态等  
+cli、web、SDK：任务的发起者、监控任务进度等  
+cli、web：负责任务的监控、查询等  
 
 >     【生产者】----------------->【调度】-----------------> 【消费者】  
 >   cli、web、SDK----------------->Temporal Server----------------->Workers
