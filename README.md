@@ -28,7 +28,7 @@ cli、web：负责任务的监控、查询等
 
 模拟场景是：延时1小时向用户发送短信和邮件
 
-1. 编写`Activity`代码
+#### 1.编写`Activity`代码
 
   ```go
   type MessageRequest struct {
@@ -65,8 +65,7 @@ cli、web：负责任务的监控、查询等
   Activity代码的限制很少，什么样的函数都可以成为Activity，甚至结构体上的方法也可以
 
   
-
-2. 编写`Workflow`代码
+#### 2.编写`Workflow`代码
 
    ```go
    func SendMessageWorkflow(ctx workflow.Context, msq MessageRequest, er EmailRequest) error {
@@ -93,8 +92,7 @@ cli、web：负责任务的监控、查询等
 其实Workflow也是一段函数，但是Workflow里的代码有些限制，比如不能和外部系统交互（读写文件、访问网络）等，所以需要划分Activity的原因就是Activity没有这种限制
 
 
-
-3. 启动 Workers
+#### 3.启动 Workers
 
    ```
    func main() {
@@ -121,13 +119,12 @@ cli、web：负责任务的监控、查询等
 启动一个Worker，将自身注册到Temporal Server，再把Workflow和Activity注册到它内部，这个Worker就成功启动了。如果结合K8s，还能编排不同的Worker，比如：给Worker扩缩容，监控Worker等
 
 
-
-4. 启动`Template Server`
+#### 4.启动`Template Server`
   根据官方github文档，使用docker启动服务，且可以配合`Temporal Web UI `使用
 
   
 
-5. 发起任务
+#### 5.发起任务
 
   ```go
   func main() {
