@@ -15,11 +15,8 @@ Temporal Server：管理注册到自己的Workers，向Workers下发任务，监
 cli、web、SDK：任务的发起者、监控任务进度等
 cli、web：负责任务的监控、查询等
 
->   【生产者】----------------->【调度】-----------------> 【消费者】
->
-> ​            |                                      |                                        |
->
-> cli、web、SDK             Temporal Server                   Workers
+>     【生产者】----------------->【调度】-----------------> 【消费者】  
+>   cli、web、SDK----------------->Temporal Server----------------->Workers
 
 
 
